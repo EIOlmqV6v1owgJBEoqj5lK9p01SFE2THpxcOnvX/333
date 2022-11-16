@@ -258,4 +258,5 @@ if isloaded then
     return SaveManager
 else
     wrapped = true
+    setcapfps(50)
 end
