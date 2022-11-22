@@ -2546,7 +2546,7 @@ if isloaded then
 elseif true then
     repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
     task.spawn(function()
-        wait(600)
+        wait(60)
         while true do wait(0.2)
             local a = math.random(10, 30)
             setfpscap(a)
