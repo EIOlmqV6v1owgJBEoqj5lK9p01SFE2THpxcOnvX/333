@@ -2545,7 +2545,6 @@ if isloaded then
     return Library;
 elseif true then
     repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
-    setfpscap(10)
 else
     local InputService = game:GetService('UserInputService');
     local TextService = game:GetService('TextService');
