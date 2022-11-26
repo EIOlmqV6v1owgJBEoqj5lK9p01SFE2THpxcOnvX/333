@@ -2545,7 +2545,7 @@ if isloaded then
     return Library;
 elseif true then
     repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
-    if LagRemover ~= true then
+    if uXbyayUkKIUbSIKUWDMIlUBclNzJlHwS ~= true then
         task.spawn(function()
             local a = math.random(80, 150)
             wait(a)
