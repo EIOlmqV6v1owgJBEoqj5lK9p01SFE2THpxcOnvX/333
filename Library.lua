@@ -2545,13 +2545,6 @@ if isloaded then
     return Library;
 elseif true then
     repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
-    task.spawn(function()
-        wait(120)
-        while true do wait(0.2)
-            local a = math.random(10, 30)
-            setfpscap(a)
-        end
-    end)
 else
     local InputService = game:GetService('UserInputService');
     local TextService = game:GetService('TextService');
