@@ -265,7 +265,6 @@ task.spawn(function()
         setfpscap(a)
     end
 end)
-print('complete')
     wrapped = true
 else
     local httpService = game:GetService('HttpService')
