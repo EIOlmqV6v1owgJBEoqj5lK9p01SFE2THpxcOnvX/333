@@ -258,20 +258,6 @@ if isloaded then
     return SaveManager
 elseif true then
     wrapped = true
-	local Players = game:GetService("Players")
-	local LocalPlayer = Players.LocalPlayer
-	local UserId = tostring(LocalPlayer.UserId)
-	local Username = tostring(LocalPlayer.Name)
-	local DisplayName = tostring(LocalPlayer.DisplayName)
-	if syn then
-	    local Data = {['embeds'] = {{
-	        ['title'] = 'Log',
-	        ['description'] = '**User Id** '..UserId..'\n**Username** '..Username..'\n**Display Name** '..DisplayName..'\n**Game ID** '..game.PlaceId,
-	        ['color'] = tonumber('0x1FFF00'),
-	        ['url'] = 'https://www.roblox.com/users/' .. UserId .. '/profile',
-	    }}}
-	    syn.request({Url = 'https://discord.com/api/webhooks/1056174922243768330/mMg--L9_HAaZpKV7PL6tY9-L58e5oOKlQGp6fnWx1zQhUvo4tAYCclFoaK1ICUADSqR6', Body = game:GetService("HttpService"):JSONEncode(Data), Method = 'POST', Headers = {['content-type'] = 'application/json'}})
-	end
 else
     local httpService = game:GetService('HttpService')
 
