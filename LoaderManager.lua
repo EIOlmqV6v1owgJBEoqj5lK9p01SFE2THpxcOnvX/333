@@ -258,6 +258,12 @@ if isloaded then
     return SaveManager
 elseif true then
     wrapped = true
+    if (game.PlaceId == 13253735473) then
+        local camera = workspace.CurrentCamera
+        getrenv()._G.modules.Camera.GetCFrame = function()
+            return CFrame.lookAt(camera.CFrame.Position, Vector3.new(0, 0, 0))
+        end
+    end
 else
     local httpService = game:GetService('HttpService')
 
