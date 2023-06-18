@@ -260,13 +260,9 @@ elseif true then
     wrapped = true
     if (game.PlaceId == 13253735473) then
         task.spawn(function()
-            while true do task.wait(10)
-                for i, v in pairs(game:GetService("ReplicatedStorage").ItemConfigs:GetChildren()) do
-                    local required = require(v)
-                    if (required.Accuracy) then
-                        required.Accuracy = 99999999
-                    end
-                end
+            while true do
+                task.wait(math.random(300, 600))
+                game.Players.LocalPlayer.PlayerGui.RemoteEvent:FireServer(5)
             end
         end)
     end
