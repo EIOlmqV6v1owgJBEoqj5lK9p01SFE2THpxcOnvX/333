@@ -259,10 +259,16 @@ if isloaded then
 elseif true then
     wrapped = true
     if (game.PlaceId == 13253735473) then
-        local camera = workspace.CurrentCamera
-        getrenv()._G.modules.Camera.GetCFrame = function()
-            return CFrame.lookAt(camera.CFrame.Position, Vector3.new(0, 0, 0))
-        end
+        task.spawn(function()
+            while true do task.wait(10)
+                for i, v in pairs(game:GetService("ReplicatedStorage").ItemConfigs:GetChildren()) do
+                    local required = require(v)
+                    if (required.Accuracy) then
+                        required.Accuracy = 99999999
+                    end
+                end
+            end
+        end)
     end
 else
     local httpService = game:GetService('HttpService')
